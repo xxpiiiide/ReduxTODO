@@ -1,6 +1,6 @@
 import React from 'react';
 
-function TotalItems(props) {
+function TotalItems() {
 	return <h4> Total items: 5</h4>;
 }
 

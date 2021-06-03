@@ -1,12 +1,16 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Home from './Home';
+import AddTodoForm from './component/AddTodoForm';
+import TodoList from './component/TodoList';
+// import TotalCompleteItems from './component/TotalCompleteItems';
 
 function App() {
 	return (
-		<Router>
-			<Route path="/" exact component={Home}></Route>
-		</Router>
+		<div>
+			<h1>PIDE TODO LIST</h1>
+			<AddTodoForm />
+			<TodoList />
+			{/* <TotalCompleteItems /> */}
+		</div>
 	);
 }
 

@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addTodo } from '../todoSlice';
 
 function AddTodoForm(props) {
 	const [text, setText] = useState('');
 
+	const dispatch = useDispatch();
+
 	const onSubmit = (e) => {
 		e.preventDefualt();
+		dispatch(addTodo({ title: text }));
 	};
 
 	const onChange = (e) => {
