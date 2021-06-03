@@ -1,17 +1,12 @@
 import React from 'react';
-import AddTodoForm from './component/AddTodoForm';
-import TodoList from './component/TodoList';
-// import TotalCompleteItems from './component/TotalCompleteItems';
+import { HashRouter as Router, Route } from 'react-router-dom';
+import Home from './component/Home';
 
 function App() {
 	return (
-		<div>
-			<h1>PIDE TODO LIST</h1>
-			<AddTodoForm />
-			<TodoList />
-			{/* <TotalCompleteItems /> */}
-		</div>
+		<Router>
+			<Route path="/" exact component={Home}></Route>
+		</Router>
 	);
 }
-
 export default App;
