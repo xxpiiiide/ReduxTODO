@@ -1,12 +1,20 @@
 import React, { useState } from 'react';
-import todos from './todos';
+import { useDispatch, useSelector } from 'react-redux';
+import Todos from './Todos';
+import { createActions } from '../redux/action';
 
 function App() {
 	const [text, setText] = useState('');
 
+	const dispatch = useDispatch();
+
+	const todoList = useSelector((state) => state);
+	// console.log(todoList);
+
 	function onSubmit(e) {
 		e.preventDefault();
 		setText('');
+		dispatch(createActions.insertTODO(text));
 	}
 
 	function onChange(e) {
@@ -25,9 +33,10 @@ function App() {
 				></input>
 				<button>추가</button>
 			</form>
-
 			<ul>
-				<todos />
+				{todoList.map((toDo) => (
+					<Todos toDo={toDo} key={toDo.id} />
+				))}
 			</ul>
 		</>
 	);

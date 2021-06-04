@@ -1,7 +1,7 @@
 const INSERT = 'INSERT';
 const REMOVE = 'REMOVE';
 const EDIT = 'EDIT';
-
+const DONE = 'DONE';
 
 const insertTODO = (text) => {
 	return {
@@ -17,19 +17,24 @@ const removeTODO = (id) => {
 	};
 };
 
-const editTODO = (id) => {
-    return {
-        type: EDIT
+const editTODO = (id, text) => {
+	return {
+		type: EDIT,
+		id,
+		text,
+	};
+};
 
-    }
-}
-
-
+const doneTODO = (id) => {
+	return {
+		type: DONE,
+		id,
+	};
+};
 
 export const createActions = {
 	insertTODO,
 	removeTODO,
-    editTODO,
-
-
+	editTODO,
+	doneTODO,
 };
