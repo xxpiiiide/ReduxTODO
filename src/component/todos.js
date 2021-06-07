@@ -24,6 +24,10 @@ function Todos({ toDo }) {
 		setToDoText(e.target.value);
 	};
 
+	const handleDone = (e) => {
+		dispatch(createActions.doneTODO(toDo.id, toDo.done))
+	};
+
 	return (
 		<>
 			{isEdit === true ? (
@@ -33,6 +37,7 @@ function Todos({ toDo }) {
 				</div>
 			) : (
 				<div>
+					<input type="checkbox" checked={toDo.done} onchange={handleDone} />
 					<li>{toDo.text}</li>
 					<button onClick={editBtnClick}>수정</button>
 					<button onClick={delBtnClick}>제거</button>

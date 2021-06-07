@@ -14,7 +14,9 @@ export const reducer = (state = [], action) => {
 				toDo.id === action.id ? { ...toDo, text: action.text } : toDo
 			);
 		case DONE:
-			return state;
+			return state.map((toDo) =>
+				toDo.id === action.id ? { ...toDo, done: !action.done } : toDo
+			);
 
 		default:
 			return state;

@@ -25,10 +25,11 @@ const editTODO = (id, text) => {
 	};
 };
 
-const doneTODO = (id) => {
+const doneTODO = (id, done) => {
 	return {
 		type: DONE,
 		id,
+		done,
 	};
 };
 
