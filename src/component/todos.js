@@ -38,12 +38,12 @@ function Todos({ toDo }) {
 				</div>
 			) : (
 				<div>
-					<List>
+					<div>
 						<input type="checkbox" checked={toDo.done} onChange={handleDone} />
-						{toDo.text}
+						<span>{toDo.text}</span>
 						<button onClick={editBtnClick}>수정</button>
 						<button onClick={delBtnClick}>제거</button>
-					</List>
+					</div>
 				</div>
 			)}
 		</>
@@ -55,5 +55,5 @@ export default Todos;
 //// styled
 
 const List = styled.li`
-	margin: 8px;
+	padding: 10px;
 `;

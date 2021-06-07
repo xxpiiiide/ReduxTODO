@@ -22,6 +22,10 @@ function App() {
 		setText(e.target.value);
 	}
 
+	function checkDelBtn(e) {
+		dispatch(createActions.checkRemove());
+	}
+
 	return (
 		<Wrapper>
 			<h1>PIDE TODO LIST</h1>
@@ -38,6 +42,7 @@ function App() {
 				{todoList.map((toDo) => (
 					<Todos toDo={toDo} key={toDo.id} />
 				))}
+				<button onClick={checkDelBtn}>선택삭제</button>
 			</ListWrapper>
 		</Wrapper>
 	);

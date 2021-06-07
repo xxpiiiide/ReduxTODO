@@ -3,6 +3,7 @@ const REMOVE = 'REMOVE';
 const EDIT = 'EDIT';
 const DONE = 'DONE';
 const DELETE = 'DELETE';
+const CHECKREMOVE = 'CHECKREMOVE';
 
 export const reducer = (state = [], action) => {
 	switch (action.type) {
@@ -20,6 +21,9 @@ export const reducer = (state = [], action) => {
 			);
 		case DELETE:
 			return state;
+
+		case CHECKREMOVE:
+			return state.filter((toDo) => toDo.done !== true);
 
 		default:
 			return state;

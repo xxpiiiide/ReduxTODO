@@ -2,6 +2,7 @@ const INSERT = 'INSERT';
 const REMOVE = 'REMOVE';
 const EDIT = 'EDIT';
 const DONE = 'DONE';
+const CHECKREMOVE = 'CHECKREMOVE';
 
 const insertTODO = (text) => {
 	return {
@@ -33,10 +34,16 @@ const doneTODO = (id, done) => {
 	};
 };
 
+const checkRemove = () => {
+	return {
+		type: CHECKREMOVE,
+	};
+};
 
 export const createActions = {
 	insertTODO,
 	removeTODO,
 	editTODO,
 	doneTODO,
+	checkRemove,
 };
