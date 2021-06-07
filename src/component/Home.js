@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import Todos from './Todos';
 import { createActions } from '../redux/action';
@@ -22,7 +23,7 @@ function App() {
 	}
 
 	return (
-		<>
+		<Wrapper>
 			<h1>PIDE TODO LIST</h1>
 			<form onSubmit={onSubmit}>
 				<input
@@ -33,13 +34,25 @@ function App() {
 				></input>
 				<button>추가</button>
 			</form>
-			<ul>
+			<ListWrapper>
 				{todoList.map((toDo) => (
 					<Todos toDo={toDo} key={toDo.id} />
 				))}
-			</ul>
-		</>
+			</ListWrapper>
+		</Wrapper>
 	);
 }
 
 export default App;
+
+/// styled
+
+const Wrapper = styled.div`
+	text-align: center;
+	background: lightblue;
+`;
+
+const ListWrapper = styled.ul`
+	list-style: none;
+	padding-left: 0px;
+`;

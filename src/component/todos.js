@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { createActions } from '../redux/action';
 
@@ -25,7 +26,7 @@ function Todos({ toDo }) {
 	};
 
 	const handleDone = (e) => {
-		dispatch(createActions.doneTODO(toDo.id, toDo.done))
+		dispatch(createActions.doneTODO(toDo.id, toDo.done));
 	};
 
 	return (
@@ -37,10 +38,12 @@ function Todos({ toDo }) {
 				</div>
 			) : (
 				<div>
-					<input type="checkbox" checked={toDo.done} onchange={handleDone} />
-					<li>{toDo.text}</li>
-					<button onClick={editBtnClick}>수정</button>
-					<button onClick={delBtnClick}>제거</button>
+					<List>
+						<input type="checkbox" checked={toDo.done} onChange={handleDone} />
+						{toDo.text}
+						<button onClick={editBtnClick}>수정</button>
+						<button onClick={delBtnClick}>제거</button>
+					</List>
 				</div>
 			)}
 		</>
@@ -48,3 +51,9 @@ function Todos({ toDo }) {
 }
 
 export default Todos;
+
+//// styled
+
+const List = styled.li`
+	margin: 8px;
+`;

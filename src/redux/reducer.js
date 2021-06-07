@@ -2,6 +2,7 @@ const INSERT = 'INSERT';
 const REMOVE = 'REMOVE';
 const EDIT = 'EDIT';
 const DONE = 'DONE';
+const DELETE = 'DELETE';
 
 export const reducer = (state = [], action) => {
 	switch (action.type) {
@@ -17,6 +18,8 @@ export const reducer = (state = [], action) => {
 			return state.map((toDo) =>
 				toDo.id === action.id ? { ...toDo, done: !action.done } : toDo
 			);
+		case DELETE:
+			return state;
 
 		default:
 			return state;
