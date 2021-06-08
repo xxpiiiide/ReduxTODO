@@ -1,19 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { addSubscriber } from '../redux/subscribers/action';
 
-const Subcribers = (props) => {
+const Subcribers = ({ count, addSubscriber }) => {
 	return (
 		<div className="items">
-			<h1> 구독자 수 : {props.count}</h1>
-			<button> 추가하기</button>
+			<h1> 구독자 수 : {count}</h1>
+			<button onClick={() => addSubscriber()}> 추가하기</button>
 		</div>
 	);
 };
 
-const mapStateToprops = (state) => {
+const mapStateToProps = (state) => {
 	return {
 		count: state.count,
 	};
 };
 
-export default connect(mapStateToprops)(Subcribers);
+const mapDispatchToProps = (dispatch) => {
+	return {
+		addSubscriber: () => dispatch(addSubscriber()),
+	};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Subcribers);
