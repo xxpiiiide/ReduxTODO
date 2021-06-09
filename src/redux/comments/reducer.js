@@ -6,7 +6,7 @@ import {
 } from './type';
 
 const initialState = {
-	comments: [],
+	items: [],
 };
 
 const commentReducer = (state = initialState, action) => {
