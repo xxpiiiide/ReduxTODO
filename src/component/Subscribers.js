@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addSubscriber } from '../redux'; // 원래는 "../redux/index"이지만 index는 생략이 가능하다. 
+import { addSubscriber } from '../redux'; // 원래는 "../redux/"이지만 index는 생략이 가능하다.
 
 const Subcribers = ({ count, addSubscriber }) => {
 	return (
