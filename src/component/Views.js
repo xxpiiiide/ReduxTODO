@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { addSubscriber } from '../redux/subscribers/action';
 
-const Subcribers = ({ count, addSubscriber }) => {
+const Views = ({ count, addSubscriber }) => {
 	return (
 		<div className="items">
 			<h1> 구독자 수 : {count}</h1>
@@ -28,4 +28,4 @@ const mapDispatchToProps = {
 	addSubscriber,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Subcribers);
+export default connect(mapStateToProps, mapDispatchToProps)(Views);
