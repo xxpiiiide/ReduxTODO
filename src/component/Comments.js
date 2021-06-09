@@ -1,17 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchComments } from '../redux/';
 
-
-const Comments = () => {
-	return <div class="items">
-
-
-    </div>;
+const Comments = (fetchComments) => {
+	useEffect(() => {
+		fetchComments();
+	}, []);
+	return <div class="items"></div>;
 };
 
-const mapStateToProps = (state) => {
-    return
-}
+const mapStateToProps = (comments) => {
+	return {
+		comments: comments.items,
+	};
+};
 
-export default Comments;
+const mapDispatchToProps = {
+	fetchComments,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Comments);
