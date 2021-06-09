@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addSubscriber } from '../redux/subscribers/action';
+import { addView } from '../redux/';
 
-const Views = ({ count, addSubscriber }) => {
+const Views = ({ count, addView }) => {
 	return (
 		<div className="items">
-			<h1> 구독자 수 : {count}</h1>
-			<button onClick={() => addSubscriber()}> 추가하기</button>
+			<h1> 조회 수 : {count}</h1>
+			<button onClick={() => addView()}> 조회하기!</button>
 		</div>
 	);
 };
@@ -25,7 +25,7 @@ const mapStateToProps = ({ subscribers }) => {
 // >>> 밑으로 간단하게 바꿀 수 있다.
 
 const mapDispatchToProps = {
-	addSubscriber,
+	addView,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Views);

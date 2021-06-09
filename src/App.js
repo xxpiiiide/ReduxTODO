@@ -4,12 +4,14 @@ import '../src/App.css';
 import { Provider } from 'react-redux';
 import store from '../src/redux/store';
 import Display from './component/Display';
+import Views from './component/Views';
 
 function App() {
 	return (
 		<Provider store={store}>
 			<div className="App">
 				<Subcribers />
+				<Views />
 				<Display />
 			</div>
 		</Provider>
