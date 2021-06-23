@@ -1,24 +1,20 @@
-const INSERT = 'INSERT';
-const REMOVE = 'REMOVE';
-const EDIT = 'EDIT';
-const DONE = 'DONE';
-const CHECKREMOVE = 'CHECKREMOVE';
+import { INSERT,REMOVE,EDIT,DONE,CHECKREMOVE, TodoActionTypes, todoType  } from "./type";
 
-const insertTODO = (text) => {
+const insertTODO = (text:string):TodoActionTypes => {
 	return {
 		type: INSERT,
 		text,
 	};
 };
 
-const removeTODO = (id) => {
+const removeTODO = (id:number):TodoActionTypes => {
 	return {
 		type: REMOVE,
 		id,
 	};
 };
 
-const editTODO = (id, text) => {
+const editTODO = (id:number, text:string):TodoActionTypes => {
 	return {
 		type: EDIT,
 		id,
@@ -26,7 +22,7 @@ const editTODO = (id, text) => {
 	};
 };
 
-const doneTODO = (id, done) => {
+const doneTODO = (id:number, done:boolean):TodoActionTypes => {
 	return {
 		type: DONE,
 		id,
@@ -34,7 +30,7 @@ const doneTODO = (id, done) => {
 	};
 };
 
-const checkRemove = () => {
+const checkRemove = ():TodoActionTypes => {
 	return {
 		type: CHECKREMOVE,
 	};
