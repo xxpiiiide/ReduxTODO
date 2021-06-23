@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { createActions } from '../redux/action';
 
@@ -52,8 +51,3 @@ function Todos({ toDo }) {
 
 export default Todos;
 
-//// styled
-
-const List = styled.li`
-	padding: 10px;
-`;

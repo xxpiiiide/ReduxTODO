@@ -1,33 +1,34 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import Todos from './Todos';
 import { createActions } from '../redux/action';
+import {rootReducerType} from '../redux/store'
+
 
 function Home() {
 	const [text, setText] = useState('');
 
 	const dispatch = useDispatch();
 
-	const todoList = useSelector((state) => state);
+	const todoList = useSelector((state:rootReducerType) => state);
 	// console.log(todoList);
 
-	function onSubmit(e) {
+	function onSubmit(e:React.FormEvent<HTMLFormElement>) {
 		e.preventDefault();
 		setText('');
 		dispatch(createActions.insertTODO(text));
 	}
 
-	function onChange(e) {
+	function onChange(e:React.ChangeEvent<HTMLInputElement>) {
 		setText(e.target.value);
 	}
 
-	function checkDelBtn(e) {
+	function checkDelBtn() {
 		dispatch(createActions.checkRemove());
 	}
 
 	return (
-		<Wrapper>
+		<div>
 			<h1>PIDE TODO LIST</h1>
 			<form onSubmit={onSubmit}>
 				<input
@@ -38,26 +39,16 @@ function Home() {
 				></input>
 				<button>추가</button>
 			</form>
-			<ListWrapper>
+			<div>
 				{todoList.map((toDo) => (
 					<Todos toDo={toDo} key={toDo.id} />
 				))}
 				<button onClick={checkDelBtn}>선택삭제</button>
-			</ListWrapper>
-		</Wrapper>
+			</div>
+		</div>
 	);
 }
 
 export default Home;
 
-/// styled
 
-const Wrapper = styled.div`
-	text-align: center;
-	background: lightblue;
-`;
-
-const ListWrapper = styled.ul`
-	list-style: none;
-	padding-left: 0px;
-`;
