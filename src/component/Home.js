@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Todos from './Todos';
 import { createActions } from '../redux/action';
 
-function App() {
+function Home() {
 	const [text, setText] = useState('');
 
 	const dispatch = useDispatch();
@@ -48,7 +48,7 @@ function App() {
 	);
 }
 
-export default App;
+export default Home;
 
 /// styled
 
