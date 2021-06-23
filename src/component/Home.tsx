@@ -5,6 +5,8 @@ import { createActions } from '../redux/action';
 import {rootReducerType} from '../redux/store'
 
 
+
+
 function Home() {
 	const [text, setText] = useState('');
 

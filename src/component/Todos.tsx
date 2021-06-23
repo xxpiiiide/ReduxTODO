@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createActions } from '../redux/action';
+import {todoType} from "../redux/type"
 
-function Todos({ toDo }) {
+type TodoProps = {
+	toDo: todoType;
+  };
+
+
+function Todos({toDo}:TodoProps) {
 	const dispatch = useDispatch();
 	const [isEdit, setIsEdit] = useState(false);
 	const [toDoText, setToDoText] = useState(toDo.text);
@@ -20,11 +26,11 @@ function Todos({ toDo }) {
 		dispatch(createActions.editTODO(toDo.id, toDoText));
 	};
 
-	const toDoChange = (e) => {
+	const toDoChange = (e:React.ChangeEvent<HTMLInputElement>) => {
 		setToDoText(e.target.value);
 	};
 
-	const handleDone = (e) => {
+	const handleDone = () => {
 		dispatch(createActions.doneTODO(toDo.id, toDo.done));
 	};
 

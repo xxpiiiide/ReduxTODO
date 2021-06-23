@@ -33,7 +33,7 @@ export interface checkRemoveType {
 
 
 export type TodoActionTypes = insertTODOType | removeTODOType | editTODOType | doneTODOType | checkRemoveType;
-
+//action타입모음
 
 export interface todoType {
     text: string,
