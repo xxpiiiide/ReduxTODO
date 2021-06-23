@@ -1,11 +1,7 @@
-const INSERT = 'INSERT';
-const REMOVE = 'REMOVE';
-const EDIT = 'EDIT';
-const DONE = 'DONE';
-const DELETE = 'DELETE';
-const CHECKREMOVE = 'CHECKREMOVE';
+import {TodoActionTypes, todoType, INSERT, REMOVE, EDIT, DONE, CHECKREMOVE, } from './type'
 
-export const reducer = (state = [], action) => {
+
+export const reducer = (state:todoType[] = [], action:TodoActionTypes): todoType[] => {
 	switch (action.type) {
 		case INSERT:
 			return [...state, { id: Date.now(), text: action.text, done: false }];
@@ -19,9 +15,6 @@ export const reducer = (state = [], action) => {
 			return state.map((toDo) =>
 				toDo.id === action.id ? { ...toDo, done: !action.done } : toDo
 			);
-		case DELETE:
-			return state;
-
 		case CHECKREMOVE:
 			return state.filter((toDo) => toDo.done !== true);
 

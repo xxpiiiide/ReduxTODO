@@ -30,3 +30,13 @@ export interface doneTODOType {
 export interface checkRemoveType {
     type: typeof CHECKREMOVE
 }
+
+
+export type TodoActionTypes = insertTODOType | removeTODOType | editTODOType | doneTODOType | checkRemoveType;
+
+
+export interface todoType {
+    text: string,
+    id: number,
+    done: boolean
+}
