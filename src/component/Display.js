@@ -1,18 +1,21 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 
 const Display = (props) => {
+	const count = useSelector((state) => state.subscribers.count);
+	console.log('count일것인가', count);
+
 	return (
 		<div>
-			<p> 구독자 수 : {props.count}</p>
+			<p> 구독자 수입니다 : {count}</p>
 		</div>
 	);
 };
 
-const mapStateToProps = ({ subscribers }) => {
-	return {
-		count: subscribers.count,
-	};
-};
+// const mapStateToProps = ({ subscribers }) => {
+// 	return {
+// 		count: subscribers.count,
+// 	};
+// };
 
-export default connect(mapStateToProps)(Display);
+export default Display;

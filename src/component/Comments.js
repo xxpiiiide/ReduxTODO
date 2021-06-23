@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { fetchComments } from '../redux/';
+import { fetchComments } from '../redux';
 
-const Comments = (fetchComments) => {
+const Comments = () => {
 	useEffect(() => {
 		fetchComments();
 	}, []);
-	return <div class="items"></div>;
+	return <div className="items"></div>;
 };
 
 const mapStateToProps = (comments) => {

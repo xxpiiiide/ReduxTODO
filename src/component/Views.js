@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import { addView } from '../redux/';
 
-const Views = ({ count, addView }) => {
+const Views = () => {
 	const [number, setNumber] = useState('');
+
+	const count = useSelector((state) => state.views.count);
+
+	const dispatch = useDispatch();
 
 	return (
 		<div className="items">
@@ -13,16 +17,16 @@ const Views = ({ count, addView }) => {
 				value={number}
 				onChange={(e) => setNumber(e.target.value)}
 			/>
-			<button onClick={() => addView(number)}> 조회하기!</button>
+			<button onClick={() => dispatch(addView(number))}> 조회하기!</button>
 		</div>
 	);
 };
 
-const mapStateToProps = ({ views }) => {
-	return {
-		count: views.count,
-	};
-};
+// const mapStateToProps = ({ views }) => {
+// 	return {
+// 		count: views.count,
+// 	};
+// };
 
 // const mapDispatchToProps = (dispatch) => {
 // 	return {
@@ -31,8 +35,10 @@ const mapStateToProps = ({ views }) => {
 // };
 // >>> 밑으로 간단하게 바꿀 수 있다.
 
-const mapDispatchToProps = {
-	addView: (number) => addView(number),
-};
+// const mapDispatchToProps = {
+// 	addView: (number) => addView(number),
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Views);
+// export default connect(mapStateToProps, mapDispatchToProps)(Views);
+
+export default Views;

@@ -5,7 +5,7 @@ import {
 	FETCH_COMMENTS_SUCCESS,
 } from './type';
 
-const fetchComments = () => {
+export const fetchComments = () => {
 	return (dispatch) => {
 		fetch('https://jsonplaceholder.typicode.com/comments')
 			.then((response) => response.json())
@@ -13,3 +13,4 @@ const fetchComments = () => {
 			.catch((error) => console.log(error));
 	};
 };
+

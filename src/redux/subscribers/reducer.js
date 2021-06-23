@@ -2,7 +2,7 @@ import { removeSubscriber } from './action';
 import { ADD_SUBSCRIBER, REMOVE_SUBSCRIBER } from './types';
 
 const initialState = {
-	count: 370,
+	count: 100,
 };
 
 const subscribersReducer = (state = initialState, action) => {
